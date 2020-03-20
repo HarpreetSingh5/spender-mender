@@ -6,9 +6,13 @@ const morgan = require('morgan');  // for monitoring within our console
 
 dotenv.config({ path: './config/config.env'}); //dotenv needs to know where our configuration file is that will store all our environment variables 
 
+const transactions = require('./routes/transactions');
+
 const app = express();
 
-app.get('/',(req,res) => res.send('Hello world'));
+app.use('/backend/transactions',transactions);
+
+//app.get('/',(req,res) => res.send('Hello world'));
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, console.log(`${process.env.MYNAME}'s Server running in ${process.env.NODE_ENV} mode on ${process.env.PORT}.`.yellow.bold)); 
