@@ -1,0 +1,17 @@
+
+#Routes and controllers
+
+Routes is the file containing our routing. We configure the router and export it to use in the server file. All it contains is our routes and the actions we can perform on them(get,put,delete).
+
+The functions executed within these requests to the routes are defined in the controllers folder and then exported to be used in the routes folder. This modularisation of code makes things neater and more logical.
+
+
+#Database stuff
+
+Configuration of Database and connection is done in config/db.js then exported as function to be executed in server.js 
+
+models folder contains schema that defines our data structure within the mongo document. We can use the schema to perform certain queries within the controller such as findById, etc
+
+#React stuff
+Within package.json of the client folder(the react package file), we define a proxy so our axios requests dont have to make a request to localhost, blah blah 
+Within package.json of server, our client command("npm start --prefix client"), the --prefix is meant to change folders I think. The dev script is meant to run both server and react app at the same time using the concurrently dependency 

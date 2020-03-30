@@ -3,12 +3,18 @@ const express = require('express');
 const dotenv = require('dotenv');  //just to allow us to create global variables. Its a small dependency to make life easier 
 const colors = require ('colors');  // just gives us different colors in the console 
 const morgan = require('morgan');  // for monitoring within our console 
-
+const connectDB = require('./config/db');
 dotenv.config({ path: './config/config.env'}); //dotenv needs to know where our configuration file is that will store all our environment variables 
 
+connectDB();
 const transactions = require('./routes/transactions');
 
 const app = express();
+app.use(express.json()); //body parser middleware that allows us to parse through request body 
+
+if(process.env.NODE_ENV === 'development'){
+    app.use(morgan('dev'));
+}
 
 app.use('/backend/transactions',transactions);
 

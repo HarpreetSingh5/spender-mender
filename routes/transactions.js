@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {getTransactions, addTransactions, removeTransactions} = require('../controllers/transactions');
+const {getTransactions, addTransactions, removeTransactions,singleTransaction} = require('../controllers/transactions');
 
 router
     .route('/')
@@ -10,6 +10,7 @@ router
 
 router
     .route('/:id')              //we need the id for delete so we couldnt chain it at the top there 
+    .get(singleTransaction)
     .delete(removeTransactions);
 
 module.exports =  router;

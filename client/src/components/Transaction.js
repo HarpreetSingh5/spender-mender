@@ -6,11 +6,11 @@ export const Transaction = ({transaction}) => {
  
 
     return (
-            <tr className={transaction.amount>=0 ? "green-text":"red-text"} key={transaction.id}>
+            <tr className={transaction.amount>=0 ? "green-text":"red-text"} key={transaction._id}>
                 <td>{transaction.transaction}</td>
                 <td>{transaction.amount}</td>
                 <td>
-                <button onClick={()=> deleteTransaction(transaction.id)} className="btn-small waves-effect waves-light grey" >Remove entry
+                <button onClick={()=> deleteTransaction(transaction._id)} className="btn-small waves-effect waves-light grey" >Remove entry
                 </button></td>
             </tr>
     )

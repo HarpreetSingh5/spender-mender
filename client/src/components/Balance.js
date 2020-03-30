@@ -8,8 +8,8 @@ export const Balance = () => {
 
     const prices = transactions.map(transaction=> transaction.amount);
     const balance = prices.reduce((total,value)=>(total = total+value),0).toFixed(2);
-    console.log(balance)
-    console.log(prices)
+    // console.log(balance)
+    // console.log(prices)
 
     return (
         <div >
